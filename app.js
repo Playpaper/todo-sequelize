@@ -26,23 +26,17 @@ usePassport(app)
 
 app.use(flash())
 app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.success_msg = req.flash('success_msg')
   res.locals.warning_msg = req.flash('warning_msg')
   res.locals.error = req.flash('error')
-  console.log('res.locals = ', res.locals)
   next()
 })
 app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
 
-// app.use((req, res, next) => {
-//   res.locals.isAuthenticated = req.isAuthenticated()
 //   res.locals.user = req.user
-//   res.locals.success_msg = req.flash('success_msg')
-//   res.locals.warning_msg = req.flash('warning_msg')
 //   res.locals.login_error = req.flash('error')
-//   next()
-// })
 
 app.listen(PORT, () => console.log(`The express server is listening on http://localhost:${PORT}`))
