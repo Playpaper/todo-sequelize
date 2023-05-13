@@ -7,7 +7,3 @@ module.exports = {
     res.redirect('/users/login')
   }
 }
-
-
-
-    // req.flash('warning_msg', 'Please log in first !')
