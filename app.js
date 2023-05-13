@@ -24,7 +24,6 @@ app.get('/',(req, res) => {
   .catch(e => res.status(422).json(e))
 })
 
-
 app.get('/users/login', (req, res) => {
   res.render('login')
 })
@@ -46,5 +45,14 @@ app.post('/users/register', (req, res) => {
 app.get('/users/logout', (req, res) => {
   res.render('logout')
 })
+
+app.get('/todos/:id', (req, res) => {
+  const id = req.params.id
+  return Todo.findByPk(id)
+    .then(todo => res.render('detail', { todo: todo.toJSON() }))
+    .catch(e => console.log(e))
+})
+
+
 
 app.listen(PORT, () => console.log(`The express server is listening on http://localhost:${PORT}`))
