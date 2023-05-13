@@ -16,8 +16,14 @@ app.set('view engine', 'hbs')
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/',(req, res) => {
-  res.render('index')
+  return Todo.findAll({
+    raw: true,
+    nest: true
+  })
+  .then(todos => res.render('index', {todos}))
+  .catch(e => res.status(422).json(e))
 })
+
 
 app.get('/users/login', (req, res) => {
   res.render('login')
