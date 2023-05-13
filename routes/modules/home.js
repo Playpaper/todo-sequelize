@@ -6,7 +6,8 @@ const Todo = db.Todo
 router.get('/',(req, res) => {
   return Todo.findAll({
     raw: true,
-    nest: true
+    nest: true,
+    where: { UserId: req.user.id }
   })
   .then(todos => res.render('index', { todos }))
   .catch(e => res.status(422).json(e))
