@@ -8,7 +8,7 @@
         <span class="fw-bold fs-5 text-secondary">{{ this.name }}</span>
       </div>
       <div class="col-auto">
-        <a class="btn btn-info text-light" href="/todos/{{ this.id }}">Detail</a>
+        <a class="btn btn-info text-light" href="/todos/{{ this.id }}/detail">Detail</a>
         <a class="btn btn-warning text-light" href="/todos/{{ this.id }}/edit">Edit</a>
         <form action="/todos/{{ this.id }}?_method=DELETE" method="POST" style="display:inline;">
           <button class="btn btn-danger" type="submit">Delete</button>

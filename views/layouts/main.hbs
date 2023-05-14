@@ -9,13 +9,13 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar bg-secondary">
       <div class="container">
-        <a href="/">Todo List</a>
+        <a href="/" class="navbar-brand text-light">Todo List</a>
         {{#if isAuthenticated}}
-          <a class="btn btn-outline-dark" href="/users/logout">Logout</a>
+          <a class="btn btn-outline-light" href="/users/logout">Logout</a>
         {{else}}
-          <a class="btn btn-outline-dark" href="/users/login">Login</a>
+          <a class="btn btn-outline-light" href="/users/login">Login</a>
         {{/if}}
       </div>
     </nav>

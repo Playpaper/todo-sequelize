@@ -1,5 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 const flash = require('connect-flash')
 const session = require('express-session')
 // 載入設定檔，要寫在 express-session 以後
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
   next()
 })
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 app.use(routes)
 
 
