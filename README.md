@@ -28,26 +28,34 @@ npm i [套件名稱]
 ```
 > :heavy_check_mark: Check package.json for dependencies
 
-:four: 設定 sequelize 
+:four: MySQL 建立專案DB
+```
+drop database if exists todo_sequelize;
+create database todo_sequelize;
+use todo_sequelize;
+```
+
+:five: Express 資料庫設定
 ```
 npx sequelize init
 ```
-> :heavy_check_mark: 會產生相關的檔案或資料夾，調整相關設定
 
-:five: 產生資料表
+:six: 產生資料表
 ```
 npx sequelize db:migrate
 ```
-:six: 設定種子資料
+> :heavy_check_mark: 會產生相關的檔案或資料夾，調整相關設定
+> 
+:seven: 設定種子資料
 ```
 npx sequelize seed:generate --name default-data
 npx sequelize db:seed:all
 ```
-:seven: 啟動伺服器
+:eight: 啟動伺服器
 ```
 npm run dev
 ```
-:eight: 當終端機出現以下字樣時，表示伺服器已啟動
+:nine: 當終端機出現以下字樣時，表示伺服器已啟動
 ```
 The express server is listening on http://localhost:3000
 ```
